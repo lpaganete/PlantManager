@@ -31,7 +31,7 @@ export function Welcome() {
                 Nós cuidamos de lembrar você sempre que precisar.
             </Text>
 
-            <Button title="Imagem" onPress={handleVisibility} />
+            <Button title=">" />
 
 
 
