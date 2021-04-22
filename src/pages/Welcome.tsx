@@ -1,5 +1,14 @@
 import React from 'react';
-import { SafeAreaView, View, Text, Image, TouchableOpacity, StyleSheet } from 'react-native';
+import {
+    SafeAreaView,
+    Text,
+    Image,
+    TouchableOpacity,
+    StyleSheet,
+    Dimensions
+} from 'react-native';
+
+import { Feather } from '@expo/vector-icons';
 
 import wateringImg from '../assets/watering.png';
 import colors from '../styles/colors';
@@ -16,7 +25,11 @@ export function Welcome() {
             </Text>
 
 
-            <Image source={wateringImg} style={styles.image} />
+            <Image
+                source={wateringImg}
+                style={styles.image}
+                resizeMode="contain"
+            />
 
 
             <Text style={styles.subtitle}>
@@ -25,8 +38,11 @@ export function Welcome() {
             </Text>
 
             <TouchableOpacity style={styles.button} activeOpacity={0.7}>
-                <Text style={styles.buttonText}>
-                    {'>'}
+                <Text>
+                    <Feather
+                        name="chevron-right"
+                        style={styles.buttonIcon}
+                    />
                 </Text>
             </TouchableOpacity >
         </SafeAreaView>
@@ -37,7 +53,7 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         alignItems: "center",
-        justifyContent: "space-between"
+        justifyContent: "space-around"
     },
 
     title: {
@@ -56,8 +72,7 @@ const styles = StyleSheet.create({
     },
 
     image: {
-        width: 292,
-        height: 284
+        height: Dimensions.get('window').width * 0.7
     },
 
     button: {
@@ -70,7 +85,7 @@ const styles = StyleSheet.create({
         width: 56
     },
 
-    buttonText: {
+    buttonIcon: {
         color: colors.white,
         fontSize: 24
     }
