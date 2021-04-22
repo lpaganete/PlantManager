@@ -1,5 +1,6 @@
 import React from 'react';
 import { Welcome } from './src/pages/Welcome';
+import AppLoading from 'expo-app-loading';
 import {
   useFonts,
   Jost_400Regular,
@@ -12,7 +13,11 @@ export default function App() {
   const [fonstsLoaded] = useFonts({
     Jost_400Regular,
     Jost_600SemiBold
-  })
+  });
+
+  if (!fonstsLoaded) {
+    return <AppLoading />
+  }
 
   return (
     <Welcome />
